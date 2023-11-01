@@ -9,17 +9,6 @@
 git clone https://github.com/AgustinLorenzo/openwrt.git -b main --single-branch openwrt --depth 1
 cd openwrt
 
-# 增加ax3600 stock布局
-git remote add upstream https://github.com/zhkong/openwrt-ipq807x.git
-git fetch upstream xiaomi-ax3600-stock-layout --depth 3
-git cherry-pick e2bb765
-git cherry-pick 6f6eb1d
-#如果checkout失败，说明有冲突，停止编译
-if [ $? -ne 0 ]; then
-    echo "cherry-pick failed, please check"
-    exit 1
-fi
-
 # 更新 Feeds
 ./scripts/feeds update -a
 ./scripts/feeds install -a
