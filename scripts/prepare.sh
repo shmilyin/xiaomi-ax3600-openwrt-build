@@ -40,6 +40,7 @@ rm -rf package/emortal/default-settings
 svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-base feeds/luci/modules/luci-base
 svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-mod-status feeds/luci/modules/luci-mod-status
 svn export https://github.com/immortalwrt/packages/branches/master/utils/coremark package/new/coremark
+# cp -r ../package/coremark package/new/
 svn export https://github.com/immortalwrt/immortalwrt/branches/master/package/emortal/default-settings package/emortal/default-settings
 # svn export https://github.com/immortalwrt/immortalwrt/branches/openwrt-23.05/package/utils/mhz package/utils/mhz
 
@@ -47,7 +48,7 @@ svn export https://github.com/immortalwrt/immortalwrt/branches/master/package/em
 bash ../scripts/fix-argon.sh
 
 # 增加 oh-my-zsh
-bash ../scripts/preset-terminal-tools.sh
+#bash ../scripts/preset-terminal-tools.sh
 
 # config file
 cp ../config/new-config .config
