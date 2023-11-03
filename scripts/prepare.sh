@@ -9,13 +9,15 @@
 git clone https://github.com/AgustinLorenzo/openwrt.git -b main --single-branch openwrt --depth 1
 cd openwrt
 
+sed -i '$a src-git NueXini_Packages https://github.com/NueXini/NueXini_Packages.git' feeds.conf.default
+
 # 更新 Feeds
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
 # 添加第三方软件包
 ## openclash
-git clone https://github.com/vernesong/OpenClash.git --single-branch --depth 1 package/new/luci-openclash
+# git clone https://github.com/vernesong/OpenClash.git --single-branch --depth 1 package/new/luci-openclash
 ## argon theme
 git clone https://github.com/jerrykuku/luci-theme-argon.git --single-branch --depth 1 package/new/luci-theme-argon
 ## KMS激活
