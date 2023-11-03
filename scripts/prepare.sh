@@ -9,7 +9,8 @@
 git clone https://github.com/AgustinLorenzo/openwrt.git -b main --single-branch openwrt --depth 1
 cd openwrt
 
-sed -i '$a src-git NueXini_Packages https://github.com/NueXini/NueXini_Packages.git' feeds.conf.default
+# sed -i '$a src-git NueXini_Packages https://github.com/NueXini/NueXini_Packages.git' feeds.conf.default
+sed -i '$a src-git kiddin9_Packages https://github.com/kiddin9/openwrt-packages.git' feeds.conf.default
 
 # 更新 Feeds
 ./scripts/feeds update -a
@@ -33,7 +34,7 @@ sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' package/new/luci-ap
 # AutoCore
 svn export https://github.com/immortalwrt/immortalwrt/branches/master/package/emortal/autocore package/new/autocore
 sed -i 's/"getTempInfo" /"getTempInfo", "getCPUBench", "getCPUUsage" /g' package/new/autocore/files/luci-mod-status-autocore.json
-sed -i '/s/cpu_arch="?"/cpu_arch="ARMv8 Processor rev 4(v8l)"/g' package/new/autocore/files/cpuinfo
+sed -i 's/cpu_arch="?"/cpu_arch="ARMv8 Processor rev 4(v8l)"/g' package/new/autocore/files/cpuinfo
 
 rm -rf feeds/luci/modules/luci-base
 rm -rf feeds/luci/modules/luci-mod-status
@@ -55,6 +56,11 @@ bash ../scripts/fix-argon.sh
 
 # config file
 cp ../config/new-config .config
+sed -i '$a CONFIG_PACKAGE_luci-app-openclash=y' .config
+sed -i '$a CONFIG_PACKAGE_luci-app-wireguard=y' .config
+sed -i '$a CONFIG_PACKAGE_luci-i18n-wireguard-zh-cn=y' .config
+sed -i '$a CONFIG_PACKAGE_luci-app-smartdns=y' .config
+sed -i '$a CONFIG_PACKAGE_luci-i18n-smartdns-zh-cn=y' .config
 make defconfig
 
 # 编译固件
