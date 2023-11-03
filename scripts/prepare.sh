@@ -31,6 +31,7 @@ sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' package/new/luci-ap
 # AutoCore
 svn export https://github.com/immortalwrt/immortalwrt/branches/master/package/emortal/autocore package/new/autocore
 sed -i 's/"getTempInfo" /"getTempInfo", "getCPUBench", "getCPUUsage" /g' package/new/autocore/files/luci-mod-status-autocore.json
+sed -i '/s/cpu_arch="?"/cpu_arch="IPQ8071A"/g' package/new/autocore/files/cpuinfo
 
 rm -rf feeds/luci/modules/luci-base
 rm -rf feeds/luci/modules/luci-mod-status
