@@ -20,7 +20,7 @@ sed -i '$a src-git kiddin9_Packages https://github.com/kiddin9/openwrt-packages.
 ## openclash
 # git clone https://github.com/vernesong/OpenClash.git --single-branch --depth 1 package/new/luci-openclash
 ## argon theme
-git clone https://github.com/jerrykuku/luci-theme-argon.git --single-branch --depth 1 package/new/luci-theme-argon
+# git clone https://github.com/jerrykuku/luci-theme-argon.git --single-branch --depth 1 package/new/luci-theme-argon
 ## KMS激活
 svn export https://github.com/immortalwrt/luci/branches/master/applications/luci-app-vlmcsd package/new/luci-app-vlmcsd
 svn export https://github.com/immortalwrt/packages/branches/master/net/vlmcsd package/new/vlmcsd
@@ -56,11 +56,57 @@ bash ../scripts/fix-argon.sh
 
 # config file
 cp ../config/new-config .config
-sed -i '$a CONFIG_PACKAGE_luci-app-openclash=y' .config
-sed -i '$a CONFIG_PACKAGE_luci-app-wireguard=y' .config
-sed -i '$a CONFIG_PACKAGE_luci-i18n-wireguard-zh-cn=y' .config
-sed -i '$a CONFIG_PACKAGE_luci-app-smartdns=y' .config
-sed -i '$a CONFIG_PACKAGE_luci-i18n-smartdns-zh-cn=y' .config
+
+cat >> .config <<EOF
+CONFIG_PACKAGE_luci-app-openclash=y
+
+CONFIG_PACKAGE_luci-app-wireguard=y
+CONFIG_PACKAGE_luci-i18n-wireguard-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-ddns=y
+CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-openvpn-server=y
+CONFIG_PACKAGE_luci-i18n-openvpn-server-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-smartdns=y
+CONFIG_PACKAGE_luci-i18n-smartdns-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-ttyd=y
+CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-upnp=y
+CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-vlmcsd=y
+CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-wifischedule=y
+CONFIG_PACKAGE_luci-i18n-wifischedule-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-wolplus=y
+CONFIG_PACKAGE_luci-i18n-wolplus-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-wrtbwmon=y
+CONFIG_PACKAGE_luci-i18n-wrtbwmon-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-v2ray-server=y
+CONFIG_PACKAGE_luci-i18n-v2ray-server-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-adguardhome=y
+CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-adbyby-plus=y
+CONFIG_PACKAGE_luci-i18n-adbyby-plus-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-autoreboot=y
+CONFIG_PACKAGE_luci-i18n-autoreboot-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_luci-i18n-mosdns-zh-cn=y
+
+EOF
+
 make defconfig
 
 # 编译固件
