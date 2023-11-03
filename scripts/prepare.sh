@@ -84,6 +84,9 @@ CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
 CONFIG_PACKAGE_luci-app-wifischedule=y
 CONFIG_PACKAGE_luci-i18n-wifischedule-zh-cn=y
 
+CONFIG_PACKAGE_luci-app-wol=y
+CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
+
 CONFIG_PACKAGE_luci-app-wolplus=y
 CONFIG_PACKAGE_luci-i18n-wolplus-zh-cn=y
 
@@ -104,6 +107,9 @@ CONFIG_PACKAGE_luci-i18n-autoreboot-zh-cn=y
 
 CONFIG_PACKAGE_luci-app-mosdns=y
 CONFIG_PACKAGE_luci-i18n-mosdns-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-zerotier=y
+CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
 
 EOF
 
