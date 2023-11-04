@@ -113,6 +113,17 @@ CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
 
 EOF
 
+mkdir -p files/etc/uci-defaults
+
+cat > files/etc/uci-defaults/xxx_config << EOF
+uci set wireless.radio0.country='US'
+uci set wireless.radio1.country='US'
+uci set wireless.radio2.country='US'
+uci set wireless.radio1.disabled=0
+uci set wireless.radio2.disabled=0
+uci commit
+EOF
+
 make defconfig
 
 # 编译固件
