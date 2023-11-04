@@ -58,7 +58,7 @@ bash ../scripts/fix-argon.sh
 cp ../config/new-config .config
 
 cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-openclash=y
+# CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-app-ssr-plus=y
 CONFIG_PACKAGE_luci-app-passwall=y
 
