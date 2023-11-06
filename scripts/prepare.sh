@@ -113,6 +113,9 @@ CONFIG_PACKAGE_luci-i18n-autoreboot-zh-cn=y
 CONFIG_PACKAGE_luci-app-zerotier=y
 CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
 
+CONFIG_PACKAGE_luci-app-ipsec-server=y
+CONFIG_PACKAGE_luci-i18n-ipsec-server-zh-cn=y
+
 EOF
 
 mkdir -p files/etc/uci-defaults
