@@ -1,4 +1,4 @@
-name: AX3600 OpenWRT Build
+name: AX3600 OpenWRT Build Test
 
 on:
 #  schedule:
@@ -52,7 +52,7 @@ jobs:
         df -h
     - name: prepare
       run: |
-        bash ./scripts/prepare_test.sh
+        bash ./scripts/test_prepare.sh
     - name: Get Architecture
       working-directory: ${{ github.workspace }}/openwrt
       run: |
