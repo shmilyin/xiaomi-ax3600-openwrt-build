@@ -57,6 +57,65 @@ bash ../scripts/fix-argon.sh
 # config file
 cp ../config/test_config .config
 
+cat >> .config <<EOF
+CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-app-ssr-plus=y
+CONFIG_PACKAGE_luci-app-passwall=y
+
+CONFIG_PACKAGE_luci-app-wireguard=y
+CONFIG_PACKAGE_luci-i18n-wireguard-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-ddns=y
+CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-openvpn-server=y
+CONFIG_PACKAGE_luci-i18n-openvpn-server-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-smartdns=y
+CONFIG_PACKAGE_luci-i18n-smartdns-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-ttyd=y
+CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-upnp=y
+CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-vlmcsd=y
+CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-wifischedule=y
+CONFIG_PACKAGE_luci-i18n-wifischedule-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-wol=y
+CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-wolplus=y
+CONFIG_PACKAGE_luci-i18n-wolplus-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-wrtbwmon=y
+CONFIG_PACKAGE_luci-i18n-wrtbwmon-zh-cn=y
+
+# CONFIG_PACKAGE_luci-app-v2ray-server=y
+# CONFIG_PACKAGE_luci-i18n-v2ray-server-zh-cn=y
+
+# CONFIG_PACKAGE_luci-app-adguardhome=y
+# CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
+
+# CONFIG_PACKAGE_luci-app-adbyby-plus=y
+# CONFIG_PACKAGE_luci-i18n-adbyby-plus-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-autoreboot=y
+CONFIG_PACKAGE_luci-i18n-autoreboot-zh-cn=y
+
+# CONFIG_PACKAGE_luci-app-mosdns=y
+# CONFIG_PACKAGE_luci-i18n-mosdns-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-zerotier=y
+CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
+
+CONFIG_PACKAGE_luci-app-ipsec-server=y
+CONFIG_PACKAGE_luci-i18n-ipsec-server-zh-cn=y
+EOF
 
 mkdir -p files/etc/uci-defaults
 
